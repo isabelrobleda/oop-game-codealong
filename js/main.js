@@ -2,8 +2,8 @@ class Player {
     constructor(){
         this.positionX = 50// we want to place our player in an x/y axis
         this.positionY = 0 //our player is in the bottom left corner
-        this.height = 15 //the height of our player
-        this.width = 20 //the width of our player
+        this.height = 10 //the height of our player
+        this.width = 15 //the width of our player
 
 
         //dom manipulation to reflect initial values (size, position)
@@ -61,14 +61,27 @@ const obstaclesArr = []; // will store instances of the class Obstacle
 setInterval(() => {
     const newObstacle = new Obstacle();
     obstaclesArr.push(newObstacle);
-}, 2000);
+}, 3000);
 
-//move obstacles (every 50 mms move all obstavles we have in the array)
+// update obstacles
 setInterval(() => {
     obstaclesArr.forEach((obstacleInstance) => {
+       /// move obstacle
         obstacleInstance.moveDown()
+        /// detect collision
+        if (
+            player.positionX < obstacleInstance.positionX + obstacleInstance.width &&
+            player.positionX + player.width > obstacleInstance.positionX &&
+            player.positionY < obstacleInstance.positionY + obstacleInstance.height &&
+            player.positionY + player.height > obstacleInstance.positionY
+          ) {
+            // Collision detected!
+            console.log("game over!")
+            location.href = "./gameover.html"
+          } 
+
     })
-}, 50)
+}, 30)
 
 
 
