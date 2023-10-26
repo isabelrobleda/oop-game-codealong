@@ -2,3 +2,14 @@ body {
     background-color: #ddd;
 }
 
+#board {
+    width: 100vw;
+    height: 100vw;
+    position: relative;
+}
+
+#player {
+    background-color: lightpink;
+    position: absolute;
+}
+
