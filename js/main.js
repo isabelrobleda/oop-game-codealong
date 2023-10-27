@@ -1,10 +1,9 @@
 class Player {
     constructor(){
-        this.positionX = 50// we want to place our player in an x/y axis
-        this.positionY = 0 //our player is in the bottom left corner
-        this.height = 10 //the height of our player
-        this.width = 15 //the width of our player
-
+        this.width = 20;
+        this.height = 10;
+        this.positionX = 50 - (this.width / 2);
+        this.positionY = 0;
 
         //dom manipulation to reflect initial values (size, position)
         this.playerElem = document.getElementById("player")
@@ -28,11 +27,11 @@ class Player {
 
 class Obstacle {
     constructor(){
-        this.positionX = 50
-        this.positionY = 100 
-        this.height = 10
-        this.width = 15
-        this.newObstacle = undefined
+        this.width = 30;
+        this.height = 10;
+        this.positionX = 50;
+        this.positionY = 100;
+        this.obstacleElm = null;
 
         this.createDomElement()
     }
