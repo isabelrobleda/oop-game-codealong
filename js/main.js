@@ -29,7 +29,7 @@ class Obstacle {
     constructor(){
         this.width = 30;
         this.height = 10;
-        this.positionX = 50;
+        this.positionX = Math.floor(Math.random() * (100 - this.width + 1)); //// generate random number between 0 and 100 - this.width
         this.positionY = 100;
         this.obstacleElm = null;
 
