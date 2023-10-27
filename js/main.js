@@ -29,7 +29,7 @@ class Obstacle {
     constructor(){
         this.width = 30;
         this.height = 10;
-        this.positionX = Math.floor(Math.random() * (100 - this.width + 1)); //// generate random number between 0 and 100 - this.width
+        this.positionX = Math.floor(Math.random() * (100 - this.width + 1)); //// generate random number between 0 and 100 - this.width. original formula Math.floor(Math.random() * (max - min + 1)) + min;
         this.positionY = 100;
         this.obstacleElm = null;
 
@@ -47,10 +47,10 @@ class Obstacle {
         const parentElem = document.getElementById("board")
         parentElem.appendChild(this.obstacleElm)
     }
-    moveDown(){
-    this.positionY--
-    this.obstacleElm.style.bottom = this.positionY + "vh"
-     }
+    moveDown() {    
+        this.positionY--
+        this.obstacleElm.style.bottom = this.positionY + "vh"
+    }
 }
 
 const player = new Player();
@@ -67,6 +67,16 @@ setInterval(() => {
     obstaclesArr.forEach((obstacleInstance) => {
        /// move obstacle
         obstacleInstance.moveDown()
+
+        //// remove obstacles if outside
+        if(obstacleInstance.positionY < 0 - obstacleInstance.height){
+            ///remove dom element
+            obstacleInstance.obstacleElm.remove()
+
+            ///remove from array
+            obstaclesArr.shift()
+        }
+
         /// detect collision
         if (
             player.positionX < obstacleInstance.positionX + obstacleInstance.width &&
