@@ -37,8 +37,7 @@ setInterval(() => {
     })
 }, 30)
 
-
-
+//event listeners 
 document.addEventListener("keydown", (e) => {
     switch (e.code) {
         case "ArrowLeft":

@@ -7,6 +7,7 @@ body {
     height: 100vw;
     position: relative;
     overflow: hidden;
+    background-image: url("../images/background.jpg")
 }
 
 #player {
@@ -21,5 +22,14 @@ body {
 
 #page-gameover {
     text-align: center;
-    background-color: aquamarine;
+    color: white;
+    background-color: black;
+}
+
+button {
+    background-color: white;
+    border-radius: 15%;
+    font-family: Helvetica; 
+    padding: 1rem;
+    font-size: 14px;
 }
